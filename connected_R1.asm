@@ -19,13 +19,13 @@
 ; v1
 ; F#READY 2-2-2019
 	
-GPRIOR  		= 623
+GPRIOR      = 623
 
 ; 6 is /, 7 = \
 CHAR_NUMBER = 6
 CHAR_BIT    = 1
 
-			org $80
+            org $80
 
 main
             lda #2
@@ -93,30 +93,30 @@ waitforit
             tya
             adc 20
             lsr
-			and #15
-			tax			
-			lda wave,x
+	    and #15
+	    tax			
+	    lda wave,x
 
-    		sta $d40a			
-			sta $d404
-			eor #3
-			sta $d405
+    	    sta $d40a			
+	    sta $d404
+	    eor #3
+	    sta $d405
 
             asl
 
 kolor = *+1
-			ora #$22
-			sta $d016
+	    ora #$22
+	    sta $d016
             
-			iny
-			bne more
-			beq loop
-			
+	    iny
+	    bne more
+	    beq loop
+		
 wave
-			dta $01,$01,$02,$02
-			dta $03,$03,$03,$02
-			dta $02,$02,$01,$01
-;        	dta $00,$00,$00,$00
+            dta $01,$01,$02,$02
+            dta $03,$03,$03,$02
+            dta $02,$02,$01,$01
+;           dta $00,$00,$00,$00
         	
         	
-			;run main
+            ;run main
